@@ -172,14 +172,22 @@ const Dashboard = () => {
 		setLoadingIncomes(true);
 		try {
 			const controller = new AbortController();
-			const timeoutId = setTimeout(() => controller.abort(), 10000);
+			const timeoutId = setTimeout(() => controller.abort(), 100);
+
+			const token = localStorage.getItem('token');
 			const response = await fetch(`${API_BASE_URL}/incomes/${user.userId}`, {
 				signal: controller.signal,
+				headers: token ? { Authorization: `Bearer ${token}` } : {},
 			});
+
 			clearTimeout(timeoutId);
-			if (!response.ok) throw new Error();
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
 			const data = await response.json();
-			setIncomes(data);
+			setIncomes(data || []);
 		} catch (error) {
 			setIncomes([]);
 		} finally {
