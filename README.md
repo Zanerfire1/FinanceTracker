@@ -19,3 +19,5 @@
 <img src="https://github.com/TemhaN/FinanceTracker/blob/main/Screenshots/11.png" alt="FinanceTracker">
 <img src="https://github.com/TemhaN/FinanceTracker/blob/main/Screenshots/12.png" alt="FinanceTracker">
 <img src="https://github.com/TemhaN/FinanceTracker/blob/main/Screenshots/13.png" alt="FinanceTracker">
+
+# by Zanerfire1
